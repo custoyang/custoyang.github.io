@@ -2,23 +2,23 @@ vCard - Personal Portfolio
 
 # sidebar
 
-alt = Richard hanrick
-Richard hanrick
-Web developer
+alt = Custo Yang
+Custo Yang
+Software Developer
 
 Show Contacts
 
 Email
-richard@example.com
+custoryang@gmail.com
 
 Phone
-+1 (213) 352-2795
++1 (562) 302-9718
 
 Birthday
-June 23, 1982
+September 6, 2004
 
 Location
-Sacramento, California, USA
+Cerritos, California, USA
 
 # navbar
 
