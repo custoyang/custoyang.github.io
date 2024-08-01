@@ -475,7 +475,7 @@
               <button class="active" data-filter-btn>All</button>
             </li>
 
-            <li class="filter-item">
+            <!-- <li class="filter-item">
               <button data-filter-btn>Web design</button>
             </li>
 
@@ -485,7 +485,7 @@
 
             <li class="filter-item">
               <button data-filter-btn>Web development</button>
-            </li>
+            </li> -->
 
           </ul>
 
@@ -523,27 +523,27 @@
 
           </div>
 
-          <!-- <ul class="project-list">
+          <ul class="project-list">
 
-            <li class="project-item  active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="applications">
               <a href="#">
-
+            
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+            
+                  <img src="./assets/images/pom_mockup.jpg" alt="pill organizing machine" loading="lazy">
                 </figure>
-
-                <h3 class="project-title">Finance</h3>
-
-                <p class="project-category">Web development</p>
-
+            
+                <h3 class="project-title">Pill Organizing Machine</h3>
+            
+                <p class="project-category">Applications</p>
+            
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
+            <!-- <li class="project-item  active" data-filter-item data-category="web development">
               <a href="#">
 
                 <figure class="project-img">
@@ -691,6 +691,85 @@
 
         </section>
 
+      </article>
+
+      <!--
+        - #PROJECT-DETAILS
+      -->
+
+      <article class="project-details" data-page="project-details">
+        <header>
+          <h3 class="h3 article-title">Pill Organizing Machine</h3>
+        </header>
+      
+        <section class="about-text">
+          <p>
+            <header>
+              <h5 class="h5 article-title">About</h5>
+            </header>
+            The Pill Organizing Machine project is an innovative hardware/software solution designed to assist the elderly and individuals with medical conditions in managing their medication schedules efficiently. The project aims to address the challenges faced by these individuals in taking their medication on time and in the correct dosages. By automating the dispensing process, the Pill Organizing Machine ensures that users receive their medication at regular intervals, whether it be for days, weeks, or months. The system can also be set up and maintained by healthcare providers, who can assist in refilling the device as needed.
+          </p>
+
+          <figure style="text-align: center;">
+            <img src="./assets/images/pom_mockup.jpg" alt="Pill Organizer" style="display:block; margin:auto; width:50%; height:50%; border-radius:15px;">
+            <figcaption>Fig 1. Pill Organizing Machine mockup in Figma</figcaption>
+          </figure>
+
+          <p>
+            <header>
+              <h5 class="h5 article-title">Development</h5>
+            </header>
+            <p>
+              The development of the Pill Organizing Machine involved a collaborative effort, with a focus on both hardware and software components. Here’s a detailed look at the process:
+            </p>
+
+            <p>
+              Software Development:
+            </p>
+            <ul>
+              <li>- Web Application: The core of the project is a web application developed in Python using the Flask framework. Jinja2 templating was used to create dynamic HTML pages.</li>
+              <li>- Multi-threading: To manage the concurrent execution of background tasks, such as real-time monitoring and dispensing of medication, multi-threading was integrated into the application.</li>
+              <li>- Database Management: Dynamic routes in Flask were implemented to handle CRUD operations on a SQLite database. This allowed users to securely add, update, and delete medication entries.</li>
+              <li>- User Authentication: A secure user authentication system was designed using Werkzeug password hashing and Flask-Login. This ensured that user sessions were managed effectively, maintaining state across multiple HTTP requests.</li>
+            </ul>
+            <br>
+            <p>
+              Hardware Integration:
+            </p>
+            <ul>
+              <li>- Raspberry Pi and Servo Motors: The automated pill dispensing system was engineered using Raspberry Pi and Servo motors. This combination allowed for precise control over pill scheduling and dispensing mechanisms, responding accurately to user-set timings.</li>
+              <li>- Circuit Connections: The hardware setup involved connecting various circuits to ensure the proper functioning of the dispensing mechanism. This required careful planning and execution to ensure reliability and safety.
+              </li>
+            </ul>
+          </p>
+
+          <figure style="text-align: center;">
+            <img src="./assets/images/pom_cad.jpg" alt="Pill Organizer" style="display:block; margin:auto; width:50%; height:50%; border-radius:15px;">
+            <figcaption>Fig 2. Pill Organizing Machine CAD in Solid Works</figcaption>
+          </figure>
+
+          <header>
+            <h5 class="h5 article-title">Result</h5>
+          </header>
+          <p>
+            The Pill Organizing Machine project successfully achieved its goal of providing a reliable and efficient solution for medication management. The following outcomes were realized:
+          </p>
+          <ul>
+            <li>- Automated Dispensing: The machine dispensed pills at regular intervals throughout the day, significantly reducing the risk of missed or incorrect dosages.</li>
+            <li>- User-Friendly Interface: The web application provided an intuitive interface for users to manage their medication schedules. Healthcare providers could also assist in setting up and maintaining the device.</li>
+            <li>- Secure and Reliable: With secure user authentication and robust hardware integration, the system ensured the safety and privacy of user data while delivering consistent performance.</li>
+            <li>- Improved Quality of Life: By automating the medication management process, the Pill Organizing Machine helped improve the quality of life for the elderly and those with medical conditions, offering peace of mind to both users and their caregivers.</li>
+          </ul>
+          <br>
+          <figure style="text-align: center;">
+            <video controls style="display: block; margin: auto; width: 50%;">
+              <source src="./assets/images/pom_dispensing.mp4" type="video/mp4"> <!-- Optional alternative format for better compatibility -->
+            </video>
+            <figcaption>Fig 3. Video of Pill Organizing Machine dispensing pills one by one</figcaption>
+          </figure>
+        </section>
+
+        
       </article>
 
 

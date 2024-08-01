@@ -5,8 +5,6 @@
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
-
-
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
@@ -77,8 +75,6 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 }
 
-
-
 // contact form variables
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
@@ -97,8 +93,6 @@ for (let i = 0; i < formInputs.length; i++) {
 
   });
 }
-
-
 
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
@@ -119,5 +113,28 @@ for (let i = 0; i < navigationLinks.length; i++) {
       }
     }
 
+  });
+}
+
+// project item click event
+const projectItems = document.querySelectorAll(".project-item");
+
+for (let i = 0; i < projectItems.length; i++) {
+  projectItems[i].addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const projectTitle = this.querySelector(".project-title").innerText.toLowerCase();
+
+    for (let i = 0; i < pages.length; i++) {
+      if (projectTitle === "pill organizing machine") {
+        pages[i].classList.remove("active");
+        document.querySelector("[data-page='project-details']").classList.add("active");
+        window.scrollTo(0, 0);
+      }
+    }
+
+    for (let i = 0; i < navigationLinks.length; i++) {
+      navigationLinks[i].classList.remove("active");
+    }
   });
 }
