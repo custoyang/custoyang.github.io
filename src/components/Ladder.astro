@@ -1,0 +1,29 @@
+---
+interface Props {
+  align?: string;
+}
+const { align = 'center' } = Astro.props;
+const ml = align === 'left' ? '20%' : align === 'right' ? '75%' : 'auto';
+---
+<div class="ladder reveal" aria-hidden="true" style={`margin-left:${ml}`}>
+  <div class="ladder-rung"></div>
+  <div class="ladder-rung"></div>
+  <div class="ladder-rung"></div>
+  <div class="ladder-rung"></div>
+</div>
+
+<style>
+  .ladder {
+    width: 28px; height: 70px;
+    margin: 20px auto;
+    position: relative;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .ladder::before, .ladder::after {
+    content: ''; position: absolute; top: 0;
+    width: var(--pixel); height: 100%; background: var(--ladder);
+  }
+  .ladder::before { left: 0; }
+  .ladder::after { right: 0; }
+  .ladder-rung { width: 100%; height: var(--pixel); background: var(--ladder); margin-top: 12px; }
+</style>

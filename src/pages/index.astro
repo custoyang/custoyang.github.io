@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Ladder from '../components/Ladder.astro';
+import DiaryCard from '../components/DiaryCard.astro';
+import { getCollection } from 'astro:content';
+
+const allDiary = (await getCollection('diary')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+<BaseLayout>
+
+  <!-- ════════ HOME ════════ -->
+  <section class="title-screen" id="home">
+    <div class="coins-row">
+      <div class="coin"></div><div class="coin"></div><div class="coin"></div><div class="coin"></div><div class="coin"></div>
+    </div>
+
+    <div class="pixel-character" aria-hidden="true">
+      <div class="px"></div><div class="px"></div><div class="px"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px"></div><div class="px"></div>
+      <div class="px"></div><div class="px"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px"></div>
+      <div class="px"></div><div class="px"></div><div class="px px-d"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-d"></div><div class="px px-t"></div><div class="px"></div><div class="px"></div><div class="px"></div>
+      <div class="px"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px"></div><div class="px"></div>
+      <div class="px"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px"></div><div class="px"></div><div class="px"></div>
+      <div class="px"></div><div class="px"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-t"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px"></div><div class="px"></div>
+      <div class="px"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-t"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-t"></div><div class="px px-a"></div><div class="px"></div>
+      <div class="px"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-a"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-a"></div><div class="px"></div>
+      <div class="px"></div><div class="px"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px px-t"></div><div class="px"></div><div class="px"></div><div class="px"></div>
+      <div class="px"></div><div class="px"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px"></div><div class="px"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px"></div><div class="px"></div>
+      <div class="px"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px"></div><div class="px"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px"></div>
+      <div class="px px-d"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px"></div><div class="px"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px px-d"></div><div class="px px-d"></div>
+    </div>
+
+    <h1>CUSTO YANG</h1>
+    <p class="welcome-text">
+      Hey, welcome to my little corner
+      of the internet. Come hang out —
+      I write about food, fitness, tech,
+      and whatever else is on my mind.
+    </p>
+    <div class="platform"></div>
+    <div class="barrel-row" aria-hidden="true">
+      <div class="barrel"></div>
+      <div class="barrel" style="animation-delay:-1s"></div>
+      <div class="barrel" style="animation-delay:-2s"></div>
+      <div class="barrel" style="animation-delay:-3s"></div>
+    </div>
+    <p class="blink-text">▼ SCROLL DOWN TO START ▼</p>
+  </section>
+
+  <Ladder />
+
+  <!-- ════════ POWER-UPS ════════ -->
+  <section class="level reveal" id="powerups">
+    <div class="platform"></div>
+    <div class="level-label">LEVEL 1</div>
+    <h2>POWER-UPS</h2>
+
+    <div class="powerups-grid">
+
+      <div class="powerup-card">
+        <div class="pixel-icon icon-code">
+          <div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div>
+          <div class="ipx ipx-l"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-l"></div>
+          <div class="ipx ipx-l"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-l"></div>
+          <div class="ipx ipx-l"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx"></div><div class="ipx ipx-a"></div><div class="ipx ipx-a"></div><div class="ipx"></div><div class="ipx ipx-l"></div>
+          <div class="ipx ipx-l"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-l"></div>
+          <div class="ipx ipx-l"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-l"></div>
+          <div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div>
+        </div>
+        <div class="powerup-name">SOFTWARE<br>ENGINEERING</div>
+        <div class="powerup-desc">Building robust systems and applications from the ground up. Backend logic, cloud architecture, and clean code that scales.</div>
+        <div class="powerup-tags">
+          <span class="tag">PYTHON</span><span class="tag">C#</span><span class="tag">JAVA</span><span class="tag">AZURE</span><span class="tag">CLOUD</span>
+        </div>
+      </div>
+
+      <div class="powerup-card">
+        <div class="pixel-icon icon-data">
+          <div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx ipx-c"></div><div class="ipx"></div>
+          <div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-a"></div><div class="ipx ipx-a"></div><div class="ipx ipx-c"></div><div class="ipx ipx-c"></div><div class="ipx"></div>
+          <div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-a"></div><div class="ipx ipx-a"></div><div class="ipx ipx-c"></div><div class="ipx ipx-c"></div><div class="ipx"></div>
+          <div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-a"></div><div class="ipx ipx-a"></div><div class="ipx ipx-c"></div><div class="ipx ipx-c"></div><div class="ipx"></div>
+          <div class="ipx ipx-t"></div><div class="ipx ipx-t"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-a"></div><div class="ipx ipx-a"></div><div class="ipx ipx-c"></div><div class="ipx ipx-c"></div><div class="ipx"></div>
+          <div class="ipx ipx-t"></div><div class="ipx ipx-t"></div><div class="ipx ipx-l"></div><div class="ipx ipx-l"></div><div class="ipx ipx-a"></div><div class="ipx ipx-a"></div><div class="ipx ipx-c"></div><div class="ipx ipx-c"></div><div class="ipx"></div>
+          <div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div>
+        </div>
+        <div class="powerup-name">DATA &<br>ANALYTICS</div>
+        <div class="powerup-desc">Turning raw data into stories that drive decisions. ETL pipelines, dashboards, and visualizations that actually make sense.</div>
+        <div class="powerup-tags">
+          <span class="tag">ETL</span><span class="tag">POWER BI</span><span class="tag">TABLEAU</span><span class="tag">PIPELINES</span><span class="tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="powerup-card">
+        <div class="pixel-icon icon-hw">
+          <div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div>
+          <div class="ipx ipx-d"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-d"></div>
+          <div class="ipx ipx-d"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-d"></div>
+          <div class="ipx ipx-d"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx"></div><div class="ipx ipx-d"></div>
+          <div class="ipx ipx-d"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx"></div><div class="ipx ipx-c"></div><div class="ipx ipx-d"></div>
+          <div class="ipx ipx-d"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx"></div><div class="ipx ipx-d"></div>
+          <div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-a"></div><div class="ipx ipx-d"></div><div class="ipx ipx-a"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div><div class="ipx ipx-d"></div>
+        </div>
+        <div class="powerup-name">HARDWARE<br>TESTING</div>
+        <div class="powerup-desc">Hands-on with RF, signal integrity, and test automation. Bridging the gap between physical hardware and data-driven validation.</div>
+        <div class="powerup-tags">
+          <span class="tag">KEYSIGHT</span><span class="tag">NI</span><span class="tag">MINI-CIRCUITS</span><span class="tag">RF</span><span class="tag">AUTOMATION</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="platform" style="margin-top:30px"></div>
+  </section>
+
+  <Ladder align="right" />
+
+  <!-- ════════ OFF THE CLOCK ════════ -->
+  <section class="level reveal" id="life">
+    <div class="platform"></div>
+    <div class="level-label">LEVEL 2</div>
+    <h2>OFF THE CLOCK</h2>
+    <p style="font-size:0.45rem; line-height:2.4; color:var(--dim); margin-bottom:20px;">When I'm not staring at a terminal.</p>
+
+    <div class="interests-row">
+      <div class="interest-mini"><div class="mini-icon">🍜</div><div class="mini-label">COOKING</div></div>
+      <div class="interest-mini"><div class="mini-icon">🏋</div><div class="mini-label">GYM</div></div>
+      <div class="interest-mini"><div class="mini-icon">🏓</div><div class="mini-label">PICKLEBALL</div></div>
+      <div class="interest-mini"><div class="mini-icon">🍱</div><div class="mini-label">FOODIE</div></div>
+      <div class="interest-mini"><div class="mini-icon">🎮</div><div class="mini-label">GAMING</div></div>
+      <div class="interest-mini"><div class="mini-icon">🌍</div><div class="mini-label">EXPLORING</div></div>
+    </div>
+    <div class="platform" style="margin-top:30px"></div>
+  </section>
+
+  <Ladder align="left" />
+
+  <!-- ════════ DIARY ════════ -->
+  <section class="level reveal" id="diary">
+    <div class="platform"></div>
+    <div class="level-label">LEVEL 3</div>
+    <h2>DIARY</h2>
+
+    <div class="diary-entries">
+      {allDiary.map(entry => (
+        <DiaryCard
+          title={entry.data.title}
+          date={entry.data.date}
+          preview={entry.data.preview}
+          tags={entry.data.tags}
+          slug={entry.slug}
+        />
+      ))}
+    </div>
+    <div class="platform" style="margin-top:30px"></div>
+  </section>
+
+  <Ladder />
+
+  <!-- ════════ CONTACT ════════ -->
+  <section class="level reveal" id="contact">
+    <div class="platform"></div>
+    <div class="contact-section">
+      <div class="coins-row" style="padding:20px 0">
+        <div class="coin"></div><div class="coin"></div><div class="coin"></div>
+      </div>
+      <h2>CONTINUE?</h2>
+      <p>Insert coin to get in touch.<br>Always down for new quests.</p>
+
+      <div class="social-links">
+        <a class="social-link" href="#" target="_blank">
+          <div class="social-icon icon-gh">
+            <div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div>
+            <div class="spx"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx"></div>
+            <div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx spx-t"></div>
+            <div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div>
+            <div class="spx"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx"></div>
+            <div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div>
+            <div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div>
+          </div>
+          GITHUB
+        </a>
+        <a class="social-link" href="#" target="_blank">
+          <div class="social-icon icon-li">
+            <div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div>
+            <div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div>
+            <div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div>
+            <div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div>
+            <div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div>
+            <div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div>
+            <div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div><div class="spx spx-t"></div>
+          </div>
+          LINKEDIN
+        </a>
+        <a class="social-link" href="#" target="_blank">
+          <div class="social-icon icon-tw">
+            <div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div>
+            <div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div>
+            <div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div>
+            <div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div>
+            <div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div>
+            <div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div>
+            <div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div><div class="spx"></div><div class="spx"></div><div class="spx spx-t"></div><div class="spx"></div>
+          </div>
+          TWITTER
+        </a>
+      </div>
+    </div>
+    <div class="platform"></div>
+  </section>
+
+  <footer>© 2026 CUSTO YANG · BUILT WITH PIXELS AND PATIENCE</footer>
+</BaseLayout>
+
+<style>
+  /* ── Title Screen ── */
+  .title-screen { padding: 60px 0 40px; text-align: center; }
+  .title-screen h1 {
+    font-size: 1.5rem; color: var(--text);
+    letter-spacing: 4px; margin-bottom: 20px;
+    animation: flicker 3s infinite;
+  }
+  @keyframes flicker { 0%,95%,100%{opacity:1} 96%{opacity:.7} 97%{opacity:1} 98%{opacity:.6} }
+  .welcome-text {
+    font-size: 0.55rem; color: var(--dim);
+    line-height: 2.4; max-width: 520px;
+    margin: 0 auto 30px; letter-spacing: 1px;
+  }
+
+  /* ── Pixel Character ── */
+  .pixel-character {
+    margin: 30px auto; width: 80px; height: 96px;
+    display: grid; grid-template-columns: repeat(10,8px); grid-template-rows: repeat(12,8px);
+    image-rendering: pixelated;
+  }
+  .px { width:8px; height:8px; }
+  .px-a { background: var(--accent); }
+  .px-t { background: var(--text); }
+  .px-d { background: var(--dim); }
+
+  /* ── Power-ups ── */
+  .powerups-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+  .powerup-card { border: 2px solid var(--beam); padding: 22px 18px; transition: border-color 0.3s; }
+  .powerup-card:hover { border-color: var(--accent); }
+  .pixel-icon { display: grid; image-rendering: pixelated; margin-bottom: 14px; }
+  .ipx { width:5px; height:5px; }
+  .ipx-a { background: var(--accent); }
+  .ipx-c { background: var(--coin); }
+  .ipx-t { background: var(--text); }
+  .ipx-l { background: var(--ladder); }
+  .ipx-d { background: var(--dim); }
+  .icon-code,.icon-data,.icon-hw { grid-template-columns: repeat(9,5px); grid-template-rows: repeat(7,5px); width:45px; height:35px; }
+  .powerup-name { font-size: 0.5rem; color: var(--text); margin-bottom: 10px; letter-spacing: 1px; }
+  .powerup-desc { font-size: 0.38rem; line-height: 2.2; color: var(--dim); margin-bottom: 12px; }
+  .powerup-card:hover .powerup-desc { color: var(--text); }
+  .powerup-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .powerup-card:hover .tag { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Interests ── */
+  .interests-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; margin-top: 20px; }
+  .interest-mini { border: 2px solid var(--beam); padding: 16px; text-align: center; transition: border-color 0.3s; }
+  .interest-mini:hover { border-color: var(--accent); }
+  .mini-icon { font-size: 0.6rem; color: var(--coin); margin-bottom: 8px; }
+  .mini-label { font-size: 0.38rem; color: var(--dim); letter-spacing: 2px; transition: color 0.3s; }
+  .interest-mini:hover .mini-label { color: var(--text); }
+
+  /* ── Diary ── */
+  .diary-entries { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+
+  /* ── Contact ── */
+  .contact-section { text-align: center; padding: 40px 0; }
+  .contact-section h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 16px; letter-spacing: 3px; }
+  .contact-section p { font-size: 0.45rem; color: var(--dim); line-height: 2.2; margin-bottom: 30px; }
+  .social-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+  .social-link {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.5rem; color: var(--text); text-decoration: none;
+    padding: 14px 22px; border: 2px solid var(--beam); transition: all 0.3s;
+  }
+  .social-link:hover { border-color: var(--coin); color: var(--coin); transform: translateY(-3px); }
+  .social-link:hover .spx-t { background: var(--coin); }
+  .social-icon { display: grid; image-rendering: pixelated; flex-shrink: 0; }
+  .icon-gh,.icon-li,.icon-tw { grid-template-columns:repeat(7,4px); grid-template-rows:repeat(7,4px); width:28px; height:28px; }
+  .spx { width:4px; height:4px; }
+  .spx-t { background: var(--text); transition: background 0.3s; }
+</style>

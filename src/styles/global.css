@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --bg: #0a0a0a;
+  --beam: #1a1a1a;
+  --accent: #e8572a;
+  --text: #d4cfc4;
+  --dim: #5a5650;
+  --ladder: #6b8cff;
+  --coin: #f0c040;
+  --pixel: 4px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Press Start 2P', monospace;
+  overflow-x: hidden;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect x='6' y='0' width='4' height='4' fill='%23e8572a'/%3E%3Crect x='4' y='4' width='8' height='4' fill='%23e8572a'/%3E%3Crect x='6' y='8' width='4' height='4' fill='%23e8572a'/%3E%3Crect x='2' y='12' width='4' height='4' fill='%23e8572a'/%3E%3Crect x='10' y='12' width='4' height='4' fill='%23e8572a'/%3E%3C/svg%3E") 8 8, auto;
+}
+
+/* Scanlines */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── PLATFORM ── */
+.platform {
+  width: 100%;
+  height: var(--pixel);
+  background: repeating-linear-gradient(90deg, var(--accent) 0px, var(--accent) 12px, transparent 12px, transparent 16px);
+  margin: 12px 0;
+}
+
+/* ── COINS ── */
+.coins-row { display: flex; justify-content: center; gap: 20px; padding: 10px 0; }
+.coin {
+  width: 12px; height: 12px; background: var(--coin);
+  border-radius: 50%; animation: coin-bob 2s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(240,192,64,0.3);
+}
+.coin:nth-child(2){animation-delay:.3s}.coin:nth-child(3){animation-delay:.6s}
+.coin:nth-child(4){animation-delay:.9s}.coin:nth-child(5){animation-delay:1.2s}
+@keyframes coin-bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+/* ── BARRELS ── */
+.barrel-row { display: flex; gap: 40px; padding: 8px 0; overflow: hidden; }
+.barrel {
+  width: 20px; height: 18px; border: 2px solid var(--accent);
+  border-radius: 3px; position: relative; flex-shrink: 0;
+  animation: barrel-roll 4s linear infinite;
+}
+.barrel::after {
+  content:''; position:absolute; top:50%; left:2px; right:2px;
+  height:2px; background:var(--accent); transform:translateY(-50%);
+}
+@keyframes barrel-roll { 0%{transform:translateX(0) rotate(0)} 100%{transform:translateX(-60px) rotate(-360deg)} }
+
+/* ── BLINK ── */
+.blink-text {
+  font-size: 0.5rem; color: var(--coin);
+  animation: blink 1.2s step-end infinite; margin-top: 20px;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ── SECTION LEVEL ── */
+.level { position: relative; padding: 40px 0; }
+.level-label {
+  font-size: 0.4rem; color: var(--accent); letter-spacing: 3px;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.level-label::before { content:''; display:inline-block; width:8px; height:8px; background:var(--accent); }
+.level h2 { font-size: 0.85rem; color: var(--text); letter-spacing: 2px; margin-bottom: 20px; }
+
+/* ── TAGS ── */
+.tag {
+  font-size: 0.28rem; padding: 3px 7px;
+  border: 1px solid var(--dim); color: var(--dim); letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.shown { opacity: 1; transform: translateY(0); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center; padding: 30px 0;
+  font-size: 0.3rem; color: var(--dim);
+  border-top: var(--pixel) solid var(--beam);
+  letter-spacing: 1px; margin-top: 30px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .top-bar { padding: 10px 14px !important; }
+  .nav-links { gap: 12px !important; }
+  .nav-links a { font-size: 0.35rem !important; }
+  .hud-score { display: none !important; }
+  .powerups-grid { grid-template-columns: 1fr !important; }
+  .interests-row { grid-template-columns: repeat(2, 1fr) !important; }
+  .pixel-character { transform: scale(0.75); margin: 15px auto; }
+  .social-links { flex-direction: column; align-items: center; }
+}

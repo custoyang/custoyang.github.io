@@ -1,0 +1,52 @@
+---
+import TopBar from '../components/TopBar.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Custo Yang' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+</head>
+<body>
+  <TopBar />
+  <div class="main" style="max-width:880px; margin:0 auto; padding:70px 24px 40px;">
+    <slot />
+  </div>
+  <script>
+    // Score counter
+    let currentScore = 0;
+    const scoreEl = document.getElementById('score');
+    function addScore(pts) {
+      const target = currentScore + pts;
+      const step = () => {
+        currentScore += Math.ceil((target - currentScore) * 0.15);
+        if (currentScore >= target) currentScore = target;
+        if (scoreEl) scoreEl.textContent = String(Math.min(currentScore, 999999)).padStart(6, '0');
+        if (currentScore < target) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const diff = Math.abs(window.scrollY - lastScroll);
+      if (diff > 80) { addScore(Math.floor(diff / 8)); lastScroll = window.scrollY; }
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('shown');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  preview: string;
+  tags: string[];
+  slug: string;
+}
+
+const { title, date, preview, tags, slug } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<a class="diary-card" href={`${base}diary/${slug}/`}>
+  <div class="diary-date">{date}</div>
+  <div class="diary-title-text">{title}</div>
+  <div class="diary-preview">{preview}</div>
+  <div class="diary-tags">
+    {tags.map(t => <span class="tag">{t}</span>)}
+  </div>
+  <div class="read-more">► READ MORE</div>
+</a>
+
+<style>
+  .diary-card {
+    display: block;
+    border: 2px solid var(--beam);
+    padding: 22px;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .diary-card:hover { border-color: var(--accent); transform: translateX(4px); }
+  .diary-date {
+    font-size: 0.32rem; color: var(--accent); letter-spacing: 2px;
+    margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
+  }
+  .diary-date::before { content:'►'; font-size:0.25rem; }
+  .diary-title-text { font-size: 0.5rem; color: var(--text); margin-bottom: 8px; letter-spacing: 1px; }
+  .diary-preview { font-size: 0.36rem; line-height: 2.2; color: var(--dim); }
+  .diary-card:hover .diary-preview { color: var(--text); }
+  .diary-tags { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .diary-card:hover .tag { border-color: var(--accent); color: var(--accent); }
+  .read-more { font-size: 0.32rem; color: var(--coin); margin-top: 10px; letter-spacing: 1px; }
+</style>
